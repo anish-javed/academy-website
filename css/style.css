@@ -446,7 +446,20 @@ textarea.input { min-height: 140px; resize: vertical; }
   .btn-primary:hover, .pcard:hover, .opt:hover, .wa-fab:hover { transform: none; }
 }
 
-/* phones: hide floating icons so they never cover text */
+/* phones: a few small floating icons, only in empty corners (never over text or buttons) */
 @media (max-width: 767px) {
+  .fi { display: none; width: 40px; height: 40px; font-size: 21px; border-radius: 12px; top: auto; right: auto; bottom: auto; left: auto; }
+  /* Home hero: top-right corner beside the small label, and low on the right of the picture */
+  .hero .fi-1 { display: grid; top: 10px; right: 12px; }
+  .hero .fi-4 { display: grid; bottom: 84px; right: 20px; }
+  /* Page headers: top-right corner and bottom-right corner (inside the header padding) */
+  .page-hero .fi-3 { display: grid; top: 8px; right: 12px; }
+  .page-hero .fi-5 { display: grid; bottom: 8px; right: 12px; }
+  /* Section headers (Find your path): the two top corners, above the centred label */
+  .section .fi-1 { display: grid; top: 8px; left: 12px; }
+  .section .fi-4 { display: grid; top: 8px; right: 12px; }
+}
+/* phones + "reduce motion": no floating icons at all */
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
   .float-icons { display: none; }
 }

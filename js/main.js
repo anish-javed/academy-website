@@ -133,12 +133,22 @@
 
   /* ---------- Floating subject icons ---------- */
   var fis = document.querySelectorAll('.fi');
+  var mqPhone = window.matchMedia('(max-width: 767px)');
   if (animate && fis.length) {
     fis.forEach(function (el, i) {
       var host = el.closest('.hero, .page-hero, section') || el.parentElement;
-      if (mqMobile.matches) {
-        // light version: just a gentle one-time pop-in
+      if (mqPhone.matches) {
+        // phone version: small pop-in, then a slower and smaller float (no scroll movement,
+        // so the icons stay in their empty corners and never drift over text)
         gsap.from(el, { opacity: 0, scale: 0.6, duration: 0.6, delay: 0.1 * i, ease: 'back.out(2)' });
+        var softBob = gsap.to(el, {
+          y: (i % 2 ? -6 : 6), rotation: (i % 2 ? 4 : -4), duration: 3.6 + i * 0.4,
+          ease: 'sine.inOut', yoyo: true, repeat: -1, paused: true
+        });
+        ScrollTrigger.create({
+          trigger: host, start: 'top bottom', end: 'bottom top',
+          onToggle: function (self) { self.isActive ? softBob.play() : softBob.pause(); }
+        });
         return;
       }
       var bob = gsap.to(el, {
