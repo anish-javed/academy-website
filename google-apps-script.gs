@@ -8,6 +8,8 @@
  *      enquiries  -> tab "Enquiries"
  *  - Every row gets a timestamp in Pakistan time.
  *  - If a tab is empty, the header row is created automatically.
+ *  - After the row is saved, an email alert is sent to the script owner (your own
+ *    Google account, found automatically - no email address is written in this file).
  *
  * Steps to install are in SETUP-GOOGLE-SHEET.md.
  * IMPORTANT: create this script from INSIDE your Google Sheet:
@@ -82,6 +84,9 @@ function doPost(e) {
     });
     sheet.appendRow(row);
 
+    // The row is already saved. If the email fails, we still tell the website "success".
+    try { sendAlert(p, form, timestamp); } catch (mailErr) { console.error('Email alert failed: ' + mailErr); }
+
     return reply({ result: 'success' });
   } catch (err) {
     return reply({ result: 'error', message: String(err) });
@@ -104,6 +109,37 @@ function setupSheets() {
 }
 
 /* ------------------------------------------------------------------ */
+
+/** Emails the script owner a summary of the new form. */
+function sendAlert(p, form, timestamp) {
+  var owner = Session.getEffectiveUser().getEmail();   // the account that owns the script
+  if (!owner) return;
+
+  var isAdmission = (p.formType === 'admission');
+  var subject = isAdmission
+    ? 'New admission: ' + oneLine(p.studentName) + ' - ' + oneLine(p.program)
+    : 'New enquiry: ' + oneLine(p.name) + ' - ' + oneLine(p.topic);
+
+  // One line per detail. The timestamp is skipped here because it is shown at the top.
+  var lines = [];
+  form.columns.forEach(function (col) {
+    if (col.field === '_timestamp') return;
+    var value = String(p[col.field] === undefined || p[col.field] === null ? '' : p[col.field]).trim().substring(0, MAX_LENGTH);
+    lines.push('- ' + col.header + ': ' + (value || '(not given)'));
+  });
+
+  var body = (isAdmission ? 'A new admission form was sent.' : 'A new enquiry was sent.') + '\n\n' +
+    'Time (Pakistan): ' + timestamp + '\n\n' +
+    lines.join('\n') + '\n\n' +
+    'Open the Google Sheet: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl();
+
+  MailApp.sendEmail(owner, subject, body);
+}
+
+/** Makes a value safe for an email subject: one line, trimmed, not too long. */
+function oneLine(value) {
+  return String(value === undefined || value === null ? '' : value).replace(/\s+/g, ' ').trim().substring(0, 80);
+}
 
 /** Finds the tab (creates it if missing) and adds the header row if the tab is empty. */
 function getSheet(form) {

@@ -124,6 +124,24 @@ The URL stays the same.
 
 ---
 
+## Email alerts (new version, same URL)
+
+The script sends you an email each time a form is saved. It uses your own Google account automatically. No email address is written in the file.
+
+If you already have a live web app, update it like this. The web app URL does **not** change, so you do **not** touch `js/config.js`.
+
+1. Paste the new `google-apps-script.gs` into Apps Script (see Step 3) and click **Save**.
+2. Choose **setupSheets** in the drop-down list and click **Run**. Google asks for one new permission (to send email). Click **Review permissions** and **Allow**.
+3. Click **Deploy** > **Manage deployments**.
+4. Click the **pencil (edit)** icon.
+5. Under **Version**, choose **New version**, then click **Deploy**.
+
+Do **not** use **New deployment**. That makes a different URL.
+
+If the email cannot be sent, the row is still saved and the website still shows the thank-you message. Check the **Spam** folder if you do not see the first email.
+
+---
+
 ## Problems? Try this
 
 | What you see | What to do |
