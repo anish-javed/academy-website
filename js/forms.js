@@ -106,7 +106,7 @@
       var age = now.getFullYear() - d.getFullYear();
       var m = now.getMonth() - d.getMonth();
       if (m < 0 || (m === 0 && now.getDate() < d.getDate())) age--;
-      if (age < 11 || age > 25) return 'Please check the date. Our students are usually between 11 and 25 years old.';
+      if (age < 12 || age > 22) return 'Please check the date of birth. The student should be between 12 and 22 years old.';
       return '';
     },
     classApplying: function (v) { return v ? '' : 'Please choose the class you are applying for.'; },

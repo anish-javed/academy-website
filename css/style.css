@@ -445,3 +445,8 @@ textarea.input { min-height: 140px; resize: vertical; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .btn-primary:hover, .pcard:hover, .opt:hover, .wa-fab:hover { transform: none; }
 }
+
+/* phones: hide floating icons so they never cover text */
+@media (max-width: 767px) {
+  .float-icons { display: none; }
+}
