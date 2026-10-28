@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enquiry | Zenith Academy Lahore</title>
+  <meta name="description" content="Ask Zenith Academy (demo website) about admissions, fees or timings. We reply quickly.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html" aria-label="Zenith Academy - home">
+        <span data-icon="logo"></span>
+        <span class="brand-text">Zenith<small>Academy</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span data-icon="menu"></span></button>
+      <nav id="nav" class="nav" aria-label="Main menu">
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="admission.html">Admission</a>
+        <a href="enquiry.html" aria-current="page">Enquiry</a>
+        <a href="about.html">About Us</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="float-icons" aria-hidden="true">
+        <span class="fi fi-3 y" data-icon="bulb"></span>
+        <span class="fi fi-5" data-icon="phone"></span>
+      </div>
+      <div class="container">
+        <span class="eyebrow" data-reveal>Enquiry</span>
+        <h1 data-reveal>Got a <span data-uline>question?</span></h1>
+        <p class="lead" data-reveal>Ask about admissions, fees or timings. A friendly person will get back to you.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="form-wrap">
+          <div class="form-card" id="formCard">
+
+            <div class="form-body" id="formBody">
+              <div class="alert error" id="formAlert" role="alert" hidden></div>
+
+              <form id="enquiryForm" novalidate>
+                <div class="hp" aria-hidden="true">
+                  <label>Leave this empty <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
+                </div>
+
+                <div class="fields">
+                  <div class="field full" data-field="name">
+                    <label for="name">Your name <span class="req">*</span></label>
+                    <input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Imran Khan" maxlength="60" aria-describedby="name-err">
+                    <p class="err" id="name-err"></p>
+                  </div>
+
+                  <div class="field full" data-field="iam" role="radiogroup" aria-labelledby="iamLabel" aria-describedby="iam-err">
+                    <span class="label" id="iamLabel">I am a <span class="req">*</span></span>
+                    <div class="pill-group">
+                      <label class="pill"><input type="radio" name="iam" value="Student"><span>Student</span></label>
+                      <label class="pill"><input type="radio" name="iam" value="Parent"><span>Parent</span></label>
+                    </div>
+                    <p class="err" id="iam-err"></p>
+                  </div>
+
+                  <div class="field" data-field="phone">
+                    <label for="phone">Phone number <span class="req">*</span></label>
+                    <input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="03XX-XXXXXXX" maxlength="20" aria-describedby="phone-hint phone-err">
+                    <p class="hint" id="phone-hint">Example: 0300-1234567</p>
+                    <p class="err" id="phone-err"></p>
+                  </div>
+
+                  <div class="field" data-field="email">
+                    <label for="email">Email <span class="opt-tag">(optional)</span></label>
+                    <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" maxlength="80" aria-describedby="email-err">
+                    <p class="err" id="email-err"></p>
+                  </div>
+
+                  <div class="field full" data-field="topic">
+                    <label for="topic">Topic <span class="req">*</span></label>
+                    <select class="input" id="topic" name="topic" aria-describedby="topic-err">
+                      <option value="">Choose a topic</option>
+                      <option>Admissions</option>
+                      <option>Fees</option>
+                      <option>Timings</option>
+                      <option>Other</option>
+                    </select>
+                    <p class="err" id="topic-err"></p>
+                  </div>
+
+                  <div class="field full" data-field="message">
+                    <label for="message">Your message <span class="req">*</span></label>
+                    <textarea class="input" id="message" name="message" maxlength="600" placeholder="Write your question here..." aria-describedby="message-err message-count"></textarea>
+                    <div class="counter" id="message-count" aria-live="off">0 / 600</div>
+                    <p class="err" id="message-err"></p>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <span class="hint">We only use your details to answer your enquiry.</span>
+                  <button type="submit" class="btn btn-primary" id="submitBtn">Send enquiry <span data-icon="arrow"></span></button>
+                </div>
+              </form>
+            </div>
+
+            <div class="plane-stage" id="planeStage" hidden aria-hidden="true">
+              <svg class="trail" viewBox="0 0 600 260" preserveAspectRatio="none"><path id="trailPath" d="M40 200 C 160 220, 220 90, 330 120 S 520 40, 640 -20"/></svg>
+              <svg class="plane" id="plane" viewBox="0 0 96 96" fill="none" stroke="#0b1f4b" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M90 6 6 42l28 10z" fill="#fff"/>
+                <path d="M90 6 34 52l10 28z" fill="#dbe6ff"/>
+                <path d="M34 52 90 6" />
+              </svg>
+            </div>
+            <div class="success" id="successPanel" hidden tabindex="-1">
+              <div class="success-badge" data-icon="check"></div>
+              <h2 id="successTitle">Thank you!</h2>
+              <p id="successText"></p>
+              <div class="actions">
+                <a class="btn btn-primary" href="index.html">Back to home</a>
+                <button class="btn btn-outline" type="button" id="sendAnother">Send another message</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="grid grid-3" style="margin-top:40px">
+          <div class="card feature" data-reveal><div class="badge-ico" data-icon="phone"></div><h3>Call us</h3><p><a href="tel:03000000000">0300 0000000</a><br>Mon&ndash;Sat, 8:00 AM &ndash; 7:30 PM</p></div>
+          <div class="card feature" data-reveal><div class="badge-ico" data-icon="whatsapp"></div><h3>WhatsApp</h3><p><a href="https://wa.me/923000000000" target="_blank" rel="noopener">Chat with us</a><br>We reply within the day.</p></div>
+          <div class="card feature" data-reveal><div class="badge-ico" data-icon="pin"></div><h3>Visit us</h3><p>Zenith Academy, Gulberg, Lahore<br>(demo address)</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span data-icon="logo"></span><span class="brand-text">Zenith<small>Academy</small></span></a>
+        <p><strong>Reach your zenith.</strong><br>Classes 9th to 12th in Lahore, Pakistan.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="admission.html">Admission</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:03000000000">0300 0000000</a></li>
+          <li><a href="mailto:hello@zenithacademy.example">hello@zenithacademy.example</a></li>
+          <li>Mon&ndash;Sat, 8:00 AM &ndash; 7:30 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container foot-bottom">
+      <span>&copy; 2026 Zenith Academy</span>
+      <span class="demo">This is a demo website. Zenith Academy is a made-up academy.</span>
+    </div>
+  </footer>
+
+  <a class="wa-fab" href="https://wa.me/923000000000?text=Hello%20Zenith%20Academy%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <span data-icon="whatsapp"></span><span class="wa-label">Chat with us</span>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/icons.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>

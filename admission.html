@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admission | Zenith Academy Lahore</title>
+  <meta name="description" content="Apply for admission to Zenith Academy, Lahore (demo website). Simple 4-step form for 9th, 10th, 11th and 12th class.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html" aria-label="Zenith Academy - home">
+        <span data-icon="logo"></span>
+        <span class="brand-text">Zenith<small>Academy</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span data-icon="menu"></span></button>
+      <nav id="nav" class="nav" aria-label="Main menu">
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="admission.html" aria-current="page">Admission</a>
+        <a href="enquiry.html">Enquiry</a>
+        <a href="about.html">About Us</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="float-icons" aria-hidden="true">
+        <span class="fi fi-3 y" data-icon="cap"></span>
+        <span class="fi fi-5" data-icon="pencil"></span>
+      </div>
+      <div class="container">
+        <span class="eyebrow" data-reveal>Admission</span>
+        <h1 data-reveal>Start your <span data-uline>journey</span> with us</h1>
+        <p class="lead" data-reveal>Four short steps. Your answers are saved on this device, so you can leave and come back.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="form-wrap">
+          <div class="form-card" id="formCard">
+
+            <!-- ================= THE FORM ================= -->
+            <div class="form-body" id="formBody">
+              <div class="restored" id="restoredNote" hidden>
+                <span>Welcome back! We saved your answers from last time.</span>
+                <button type="button" class="link-btn" id="startOver">Start over</button>
+              </div>
+
+              <div class="restored" id="wantedNote" hidden>
+                <span></span>
+              </div>
+
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-label="Form progress" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1"><i id="progressFill"></i></div>
+                <ol class="steps" id="stepsList">
+                  <li class="current"><b>1</b><span>Student</span></li>
+                  <li><b>2</b><span>Education</span></li>
+                  <li><b>3</b><span>Contact</span></li>
+                  <li><b>4</b><span>Review</span></li>
+                </ol>
+              </div>
+
+              <div class="alert error" id="formAlert" role="alert" hidden></div>
+
+              <form id="admissionForm" novalidate>
+                <!-- Honeypot: people never see this. Spam robots fill it in. -->
+                <div class="hp" aria-hidden="true">
+                  <label>Leave this empty <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
+                </div>
+
+                <!-- STEP 1 -->
+                <fieldset class="step" data-step="1">
+                  <legend class="sr-only">Step 1: Student</legend>
+                  <h2 class="step-title" tabindex="-1">About the student</h2>
+                  <p class="step-sub">Let us start with the basics.</p>
+                  <div class="fields">
+                    <div class="field full" data-field="studentName">
+                      <label for="studentName">Student's full name <span class="req">*</span></label>
+                      <input class="input" id="studentName" name="studentName" type="text" autocomplete="name" placeholder="e.g. Ayesha Khan" maxlength="60" aria-describedby="studentName-err">
+                      <p class="err" id="studentName-err"></p>
+                    </div>
+                    <div class="field full" data-field="guardianName">
+                      <label for="guardianName">Father's or guardian's name <span class="req">*</span></label>
+                      <input class="input" id="guardianName" name="guardianName" type="text" autocomplete="off" placeholder="e.g. Imran Khan" maxlength="60" aria-describedby="guardianName-err">
+                      <p class="err" id="guardianName-err"></p>
+                    </div>
+                    <div class="field" data-field="dob">
+                      <label for="dob">Date of birth <span class="req">*</span></label>
+                      <input class="input" id="dob" name="dob" type="date" autocomplete="bday" aria-describedby="dob-err">
+                      <p class="err" id="dob-err"></p>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- STEP 2 -->
+                <fieldset class="step" data-step="2" hidden>
+                  <legend class="sr-only">Step 2: Education</legend>
+                  <h2 class="step-title" tabindex="-1">Education</h2>
+                  <p class="step-sub">Tell us what class and program you want.</p>
+                  <div class="fields">
+                    <div class="field full" data-field="classApplying" role="radiogroup" aria-labelledby="classLabel" aria-describedby="classApplying-err">
+                      <span class="label" id="classLabel">Class applying for <span class="req">*</span></span>
+                      <div class="pill-group">
+                        <label class="pill"><input type="radio" name="classApplying" value="9th"><span>9th</span></label>
+                        <label class="pill"><input type="radio" name="classApplying" value="10th"><span>10th</span></label>
+                        <label class="pill"><input type="radio" name="classApplying" value="11th"><span>11th</span></label>
+                        <label class="pill"><input type="radio" name="classApplying" value="12th"><span>12th</span></label>
+                      </div>
+                      <p class="err" id="classApplying-err"></p>
+                    </div>
+                    <div class="field full" data-field="program">
+                      <label for="program">Program <span class="req">*</span></label>
+                      <select class="input" id="program" name="program" disabled aria-describedby="program-hint program-err">
+                        <option value="">Choose your class first</option>
+                      </select>
+                      <p class="hint" id="program-hint">9th and 10th: Science or Arts. 11th and 12th: Pre-Engineering, Pre-Medical, Arts or Commerce.</p>
+                      <p class="err" id="program-err"></p>
+                    </div>
+                    <div class="field full" data-field="previousSchool">
+                      <label for="previousSchool">Previous school <span class="req">*</span></label>
+                      <input class="input" id="previousSchool" name="previousSchool" type="text" autocomplete="off" placeholder="e.g. Government High School, Model Town" maxlength="80" aria-describedby="previousSchool-err">
+                      <p class="err" id="previousSchool-err"></p>
+                    </div>
+                    <div class="field" data-field="lastPercentage">
+                      <label for="lastPercentage">Last exam percentage <span class="req">*</span></label>
+                      <input class="input" id="lastPercentage" name="lastPercentage" type="number" inputmode="decimal" min="0" max="100" step="any" placeholder="e.g. 78.5" aria-describedby="lastPercentage-hint lastPercentage-err">
+                      <p class="hint" id="lastPercentage-hint">Not sure? Use our <a href="programs.html#calculator" target="_blank" rel="noopener">percentage calculator</a>.</p>
+                      <p class="err" id="lastPercentage-err"></p>
+                    </div>
+                    <div class="field" data-field="shift" role="radiogroup" aria-labelledby="shiftLabel" aria-describedby="shift-err">
+                      <span class="label" id="shiftLabel">Preferred shift <span class="req">*</span></span>
+                      <div class="pill-group">
+                        <label class="pill"><input type="radio" name="shift" value="Morning"><span>Morning</span></label>
+                        <label class="pill"><input type="radio" name="shift" value="Evening"><span>Evening</span></label>
+                      </div>
+                      <p class="err" id="shift-err"></p>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- STEP 3 -->
+                <fieldset class="step" data-step="3" hidden>
+                  <legend class="sr-only">Step 3: Contact</legend>
+                  <h2 class="step-title" tabindex="-1">How can we reach you?</h2>
+                  <p class="step-sub">We will call you to confirm your admission.</p>
+                  <div class="fields">
+                    <div class="field" data-field="phone">
+                      <label for="phone">Phone number <span class="req">*</span></label>
+                      <input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="03XX-XXXXXXX" maxlength="20" aria-describedby="phone-hint phone-err">
+                      <p class="hint" id="phone-hint">Example: 0300-1234567</p>
+                      <p class="err" id="phone-err"></p>
+                    </div>
+                    <div class="field" data-field="email">
+                      <label for="email">Email <span class="opt-tag">(optional)</span></label>
+                      <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" maxlength="80" aria-describedby="email-err">
+                      <p class="err" id="email-err"></p>
+                    </div>
+                    <div class="field" data-field="area">
+                      <label for="area">Your area of Lahore <span class="req">*</span></label>
+                      <select class="input" id="area" name="area" aria-describedby="area-err">
+                        <option value="">Choose your area</option>
+                        <option>Allama Iqbal Town</option><option>Bahria Town</option><option>Cantt</option><option>DHA</option>
+                        <option>Faisal Town</option><option>Garden Town</option><option>Gulberg</option><option>Iqbal Town</option>
+                        <option>Johar Town</option><option>Model Town</option><option>Samanabad</option><option>Shadman</option>
+                        <option>Township</option><option>Wapda Town</option><option>Walled City</option>
+                        <option>Other area in Lahore</option><option>Outside Lahore</option>
+                      </select>
+                      <p class="err" id="area-err"></p>
+                    </div>
+                    <div class="field" data-field="heardAbout">
+                      <label for="heardAbout">How did you hear about us? <span class="req">*</span></label>
+                      <select class="input" id="heardAbout" name="heardAbout" aria-describedby="heardAbout-err">
+                        <option value="">Choose one</option>
+                        <option>Friend or family</option><option>Facebook or Instagram</option><option>WhatsApp</option>
+                        <option>Banner or poster</option><option>Google search</option><option>My school</option><option>Other</option>
+                      </select>
+                      <p class="err" id="heardAbout-err"></p>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- STEP 4 -->
+                <fieldset class="step" data-step="4" hidden>
+                  <legend class="sr-only">Step 4: Review</legend>
+                  <h2 class="step-title" tabindex="-1">Please check everything</h2>
+                  <p class="step-sub">If something is wrong, press Edit. Then send your form.</p>
+                  <div class="review" id="review"></div>
+                  <div class="field full" data-field="consent">
+                    <div class="check-box">
+                      <label class="check" for="consent">
+                        <input type="checkbox" id="consent" name="consent" value="Yes" aria-describedby="consent-err">
+                        <span>My details may be used to contact me about admission</span>
+                      </label>
+                    </div>
+                    <p class="err" id="consent-err"></p>
+                  </div>
+                </fieldset>
+
+                <div class="form-actions">
+                  <button type="button" class="btn btn-outline" id="backBtn" hidden>Back</button>
+                  <span class="spacer"></span>
+                  <button type="button" class="btn btn-primary" id="nextBtn">Next <span data-icon="arrow"></span></button>
+                  <button type="submit" class="btn btn-primary" id="submitBtn" hidden>Send my admission form <span data-icon="arrow"></span></button>
+                </div>
+              </form>
+            </div>
+
+            <!-- ================= PLANE + THANK YOU ================= -->
+            <div class="plane-stage" id="planeStage" hidden aria-hidden="true">
+              <svg class="trail" viewBox="0 0 600 260" preserveAspectRatio="none"><path id="trailPath" d="M40 200 C 160 220, 220 90, 330 120 S 520 40, 640 -20"/></svg>
+              <svg class="plane" id="plane" viewBox="0 0 96 96" fill="none" stroke="#0b1f4b" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M90 6 6 42l28 10z" fill="#fff"/>
+                <path d="M90 6 34 52l10 28z" fill="#dbe6ff"/>
+                <path d="M34 52 90 6" />
+                <path d="M44 80 52 61" fill="#ffc93c"/>
+              </svg>
+            </div>
+            <div class="success" id="successPanel" hidden tabindex="-1">
+              <div class="success-badge" data-icon="check"></div>
+              <h2 id="successTitle">Thank you!</h2>
+              <p id="successText"></p>
+              <div class="actions">
+                <a class="btn btn-primary" href="index.html">Back to home</a>
+                <a class="btn btn-outline" href="programs.html">See programs</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span data-icon="logo"></span><span class="brand-text">Zenith<small>Academy</small></span></a>
+        <p><strong>Reach your zenith.</strong><br>Classes 9th to 12th in Lahore, Pakistan.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="admission.html">Admission</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:03000000000">0300 0000000</a></li>
+          <li><a href="mailto:hello@zenithacademy.example">hello@zenithacademy.example</a></li>
+          <li>Mon&ndash;Sat, 8:00 AM &ndash; 7:30 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container foot-bottom">
+      <span>&copy; 2026 Zenith Academy</span>
+      <span class="demo">This is a demo website. Zenith Academy is a made-up academy.</span>
+    </div>
+  </footer>
+
+  <a class="wa-fab" href="https://wa.me/923000000000?text=Hello%20Zenith%20Academy%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <span data-icon="whatsapp"></span><span class="wa-label">Chat with us</span>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/icons.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>
